@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="{% static 'cossa/akher.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    {% block linkcss %}
+    {% endblock %}
+    <title>{% block title %} Cossa Accueil {% endblock %}</title>
+
+</head>
+
+<body>
+
+  
+   <!-- Header -->  
+   <!-- Navigation -->
+    <header>
+      <div class="nav-container">
+          <nav class="nav-checkbox">
+              <a href="/cossa/" class="nav-logo"><img src="http://www.cossa.ma/images/logo.png" width="150" height="70" alt=""></a>
+              <input type="checkbox" id="tab-nav" class="tab-nav">
+              <label for="tab-nav" class="tab-nav-label">Menu</label>
+              <ul class="tab-content"  style="display: inline-flex; width:max-content ;">
+                <li ><a href="/cossa/accueil/valider_repas">Valider Repas </a></li>
+
+                  <li><a href="/cossa/accueil/">Reserver Repas</a></li>
+                  <li><a href="/cossa/reservations/">Repas Reservés</a></li>
+                  {% if user.is_authenticated  %}
+                  <li><a href="">Solde : {{user.etudiant.solde}} DH</a></li>
+                  
+                  <li><a href="/password_change/">Change Password</a></li>
+                  <li><a href="/logout">Logout</a></li>
+                  {% else %}
+                  <li><a href="/login">Login</a></li>
+                  {% endif %}
+              </ul>
+          </nav>
+      </div>
+    </header> 
+    {% block body %} 
+<div id="body">
+    
+
+    <!-- section images-slider -->
+    <section id="images-slider">
+   
+        <div class="slides">
+            
+            <input type="radio" name="radio-btn" id="img-1" checked />
+            <div class="slide-container">
+                <div class="slide">
+                    <img src="https://source.unsplash.com/IAYQuCqD00g/1920x600">
+                </div>
+                <h1 class="slide-h1">Fraicheur </h1>
+                <div class="nav">
+                   <label for="img-3" class="prev"><i class="fas fa-chevron-circle-left fa-3x"></i></label>
+             <label for="img-2" class="next"><i class="fas fa-chevron-circle-right fa-3x"></i></label>
+                </div>
+            </div>
+            
+            <input type="radio" name="radio-btn" id="img-2" checked />
+            <div class="slide-container">
+                <div class="slide">
+                    <img src="https://source.unsplash.com/KejgVx9bVTc/1920x600">
+                </div>
+                <h1 class="slide-h1"> Equilibre</h1>
+                <div class="nav">
+                   <label for="img-1" class="prev"><i class="fas fa-chevron-circle-left fa-3x"></i></label>
+             <label for="img-3" class="next"><i class="fas fa-chevron-circle-right fa-3x"></i></label>
+                </div>
+            </div>
+            
+            <input type="radio" name="radio-btn" id="img-3" checked />
+            <div class="slide-container">
+                <div class="slide">
+                    <img src="https://source.unsplash.com/zaiEh-8mznM/1920x600">
+                </div>
+                <h1 class="slide-h1"> Variété </h1>
+                <div class="nav">
+                   <label for="img-2" class="prev"><i class="fas fa-chevron-circle-left fa-3x"></i></label>
+             <label for="img-1" class="next"><i class="fas fa-chevron-circle-right fa-3x"></i></label>
+                </div>
+            </div>
+            
+               <div class="nav-dots">
+                  <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                  <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                  <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+              </div>
+        </div>
+   
+    </section>
+    
+    <!-- section reservation -->
+
+    
+  
+    
+    <!-- div img-fixed -->
+    <div class="img-fixed">
+      <h1 class="h1-specialties">Nos spécialités</h1>
+    </div>
+    
+    <!-- section specialties -->
+    <section id="specialties">
+       <div class="our-specialties-all">
+       <div class="our-specialties">
+           <div class="our-specialties-container">
+            <div class="text">
+              <h1>Petit Déjeuner</h1>
+              <p>pains traditionnels dégustés encore chauds avec du beurre et du miel, de l’huile d’olive ou du « amlou », œufs frits à la poêle, thé à la menthe brûlant ou café au lait, jus d’orange fraîchement pressé.</p>
+              <h3>1.5 Dirhams</h3>
+            </div>
+            <img class="img-our-specialties" src="https://instagram.fham6-1.fna.fbcdn.net/v/t51.2885-15/e35/65317073_2151457198316433_5472096783557481518_n.jpg?_nc_ht=instagram.fham6-1.fna.fbcdn.net&_nc_cat=109&se=7&oh=a8b1da638bab2fd63519b084d63cae3b&oe=5E87812B&ig_cache_key=MjA4Mjc5ODI3MjQwNTM0Mzg2NA%3D%3D.2">
+           </div> 
+           <div class="our-specialties-container">
+            <div class="text">
+              <h1>Dejeuner</h1>
+              <p>Accueil chaleureux, cuisine délicieuse et vin local, le tour a un prix raisonnable. Le petit thé à la menthe pour finir est la cerise sur le gâteau</p>
+              <h3> 3 Dirhams</h3>
+            </div>
+            <img class="img-our-specialties" src="https://source.unsplash.com/1ogbHcOGIqE/768x768">
+           </div> 
+        </div>
+        <div class="our-specialties">
+           <div class="our-specialties-container">
+            <div class="text">
+              <h1>Dinner</h1>
+              <p> L’image même d’une cuisine marocaine pleine de saveurs et goûteuse. De plus un service aux petits oignons et d’une gentillesse hors pair.</p>
+              <h3> 3 Dirhams</h3>
+            </div>
+            <img class="img-our-specialties" src="http://www.cossa.ma/images/News/post-details.jpg">
+           </div> 
+           <div class="our-specialties-container">
+            <div class="text">
+              <h1>Fraicheur, équilibre et variété.</h1>
+              <p>Notre priorité :
+                Donner aux nouvelles générations, qu’ils soient élèves, lycéens ou universitaires, le gout d’une alimentation saine, variée et équilibrée.
+                </p>
+              
+            </div>
+            <img class="img-our-specialties" src="https://www.freshoffthegrid.com/wp-content/uploads/Sweet-Potato-Black-Bean-Burger-11.jpg">
+           </div> 
+        </div>
+       </div>
+    </section>
+    
+    
+    <section id="about">
+        <h1>Qui sommes-nous ?</h1>
+        <div class="about-us">
+            <div class="img-about-us"> 
+                <h1>Établissement Cossa</h1>
+                        
+                <img src="{% static 'cossa/image_cossa.jpg' %}">
+            </div>  
+            <div class="about-us-inner">
+                <h1>Une bonne alimentation fait également partie de l’éducation </h1>
+                <p>En pleine croissance ou déjà à l’université, nos enfants doivent déborder d’énergie, donc une alimentation saine, variée et équilibrée s’impose. A Ets. COSSA, nous donnons aux nouvelles générations, une véritable éducation du goût dans un cadre de détente et de plaisir.
+                    <br> Pour ce faire, nos équipes mettent en œuvre leur savoir-faire, au service du goût, dans le strict respect des normes d’hygiène et de sécurité alimentaire.</p>
+            </div>
+           
+    </section>
+   
+    <!-- section contact -->
+    <section id="contact">
+       <h1>Nous contacter</h1>
+        <div class="contact">
+            <div class="contact-information">
+              <h1>Contact Information</h1>
+               <h4>Addresse: <span>N°2 RUE ADRAR، Agadir 80000</span></h4>
+               <h4>Telephone: <span>0676686185</span></h4>
+               <h4>Email: <span>matadoor005@gmail.com</span></h4>
+               <h4>site web: <span>cossa.ma</span></h4>
+            </div>
+            <form class="contact-form">
+                <input type="text" id="your-name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <textarea type="text" id="message" placeholder="Message" rows="4"></textarea>
+                <button type="submit" id="btn-contact-form"><span>Send Message</span></button>
+            </form>
+            <div class="google-maps">
+                <iframe src="https://maps.google.com/maps?q=emi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="1240" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section> 
+    
+
+    <!-- section footer -->
+    <footer id="footer">
+        <div class="footer">
+            <div class="footer-a">
+                <h1 class="h1-footer"></h1>
+                <p></p>
+            </div>
+            <div class="fooer-b">
+                <h1 class="h1-footer">Heures de Travail</h1>
+                <p>Lundi: 08: - 22:00</p>
+                <p>Mardi: 08: - 22:00</p>
+                <p>Mercredi: 08: - 22:00</p>
+                <p>Jeudi: 08: - 22:00</p>
+                <p>Vendredi: 08: - 22:00</p>
+                <p>Samedi: 08: - 22:00</p>
+                <p>Dimanche: 08: - 22:00</p>
+            </div>
+            <div class="footer-c">
+                <a href="" class="social"><i class="fab fa-twitter-square fa-2x"></i></a>
+                <a href="" class="social"><i class="fab fa-facebook-square fa-2x"></i></a>
+                <a href="" class="social"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="back-to-top"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+            </div>
+        </div>
+        <p class="p-copyright">Copyright 2019&copy; All rights reserved - Design & Developed by <a href="https://www.facebook.com/imad.elmatadoor" class="link-copyright">El Matadoor</a></p>
+    </footer>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'cossa/index.html' %}
+{% load static %}
+{% load qr_code %}
+{% block body %}
+
+<style> body{
+    background-image: url(https://media.gettyimages.com/photos/two-fresh-salad-bowls-picture-id919666108?s=2048x2048);
+    background-size: cover;
+  }
+  
+  </style>
+    <div style="margin-top: 200px; background-color: gray; width: min-content; opacity: 01; margin-left: 40% ; ">
+        <img src="{% qr_url_from_text contact_detail.tel size='M'%}" class="img-fluid mx-auto" alt="Hello World!" >
+    </div>
+{% endblock %}

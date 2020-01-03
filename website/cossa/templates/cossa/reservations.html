@@ -1,0 +1,57 @@
+{% extends 'cossa/index.html' %}
+{% load static %}
+
+{% block linkcss %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% endblock %}
+{% block title%}  Repas Reservés {% endblock %}
+
+
+{% block body %}
+{% if user.is_authenticated  %}
+<style> body{
+  background-image: url(https://media.gettyimages.com/photos/two-fresh-salad-bowls-picture-id919666108?s=2048x2048);
+  background-size: cover;
+}
+
+</style>
+
+<table class="table" style="margin-top: 100px; width: 500px;  margin-left:25%; margin-right:25%; background-color: #CDCDCDCD">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Petit Dejeuner</th>
+      <th scope="col">Dejeuner</th>
+      <th scope="col">Dinner</th>
+    </tr>
+  </thead>
+  {% if pass %}
+  <tbody >
+    {% for reservation in reservations %}
+      <tr>
+        <th scope="row"> {{reservation.0 }} </th>
+        {% if 'pdej' in reservation %}
+            <td> <img src="https://pngimage.net/wp-content/uploads/2018/06/valider-png-3.png" style="height: 30px;width: 30px;" /></td>
+            {% else %}
+              <td></td>
+            {% endif %}
+
+            {% if 'dej' in reservation %}
+            <td> <img src="https://pngimage.net/wp-content/uploads/2018/06/valider-png-3.png" style="height: 30px;width: 30px;" /></td>
+            {% else %}
+              <td></td>
+            {% endif %}
+
+            {% if 'din' in reservation %}
+            <td> <img src="https://pngimage.net/wp-content/uploads/2018/06/valider-png-3.png" style="height: 30px;width: 30px;" /></td>
+            {% else %}
+              <td></td>
+            {% endif %}
+      </tr>
+      {%endfor%}
+  </tbody>
+  {%endif%}
+</table>
+{% endif %}
+  {% endblock %}

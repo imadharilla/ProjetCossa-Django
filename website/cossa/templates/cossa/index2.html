@@ -1,0 +1,125 @@
+{% load static %}
+
+
+<!DOCTYPE html><html>
+    <head> 
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+            {% block linkcss %}
+          <script src=" {% static 'cossa/button.js' %} "></script>
+          <link rel="stylesheet" type="text/css" href=" {% static 'cossa/style.css' %} ">
+          <link rel="stylesheet" type="text/css" href=" {% static 'cossa/style2.css' %} ">
+          <link rel="stylesheet" type="text/css" href=" {% static 'cossa/style_footer.css' %} ">
+        {% endblock %}
+          
+            <title>{% block title %} Home {% endblock %} </title>
+    </head>
+<body>
+  
+  
+        <nav id="lfo9" class="navbar navbar-expand-lg navbar-dark navbar-left  bg-dark navscroll" style="color:white;" >
+                <a class="navbar-brand " href="/cossa/">
+                    <img src="http://www.cossa.ma/images/logo.png" width="150" height="70" alt="">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  {{user.etudiant.nom}}
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link " href="/cossa/accueil/">Accueil</a>
+                    </li>
+                    {% if user.is_authenticated  %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bonjour {{user.etudiant.nom}}
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          {% if user.is_authenticated  %}
+                          <a class="dropdown-item" href="">
+                              Solde : {{user.etudiant.solde}} DH
+                            </a>    {% endif %}
+                        <a class="dropdown-item " href="/password_change/">Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                      </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bonjour
+                            </a>
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/login">Login</a>
+                            </div>
+                          </li>
+                          {% endif %}
+
+                  </ul>
+                  
+                </div>
+              </nav>  
+            </div>            
+              
+    {% block body %}
+  <!--header -->
+ 
+<section id="section01" class="demo">
+  <h1>Restauration Scolaire</h1>
+  <a href="#section02"><span></span>Scroll</a>
+
+</section>
+<section id="section02" class="demo">
+  <h1>Une bonne alimentation</h1>
+  <a href="#section015"><span></span>Scroll</a>
+</section>
+
+<section id="section015" class="demo" style="background-color: white;">
+  <div class="container" style="text-align: center;">
+      <div class="row">
+          <div class="fly-divider-space space-md"></div>
+      </div>
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="fly-info-box-header">
+                  <i><img
+                      src="http://www.cossa.ma/images/Special-Offers-Details/offers-details-1.jpg" width="450" height="250"/></i>
+               
+              </div>
+              <div class="fly-info-box-content"> L’établissement COSSA est une société 100% marocaine, exerçant<br> son activité dans le marché marocain depuis plus de 17 ans.<br> Depuis sa création en 1997 Ets. <strong>COSSA</strong> pionnier de la restauration <br>collective, vise d'atteindre le rang de leader sur les différents segments <br>choisis dans le domaine de la restauration,grâce à l'amélioration <br>constante de ses niveaux de qualité, d'efficacité et de service.<br>
+
+Certifié <strong>HACCP </strong>et <strong>ISO</strong> 9001 version 2008<br>
+
+
+          </div>
+      </div>
+      <div class="row">
+          <div class="fly-divider-space space-md"></div>
+      </div>
+      
+  </div>
+  
+  </div>
+  <a href="#lfo9"> <span></span>Scroll UP </a>
+</section>
+
+  <!-- Site footer -->
+ 
+
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+
+
+
+</html>

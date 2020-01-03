@@ -1,0 +1,42 @@
+{% extends 'cossa/index.html' %}
+{% load static %}
+{% block title%} Reserver Repas {% endblock %}
+
+
+
+{% block linkcss %}
+<link rel="stylesheet" href="{% static 'cossa/reserver_repas.css' %}">
+{% endblock %}
+{% block body %}
+    {% if user.is_authenticated  %}
+        <div class="login-page" style="margin-top: 70px;">
+         
+
+            <div id="border" class="form" style="color: yellow;" >
+                <h1 class="title is-half d-flex justify-content-center" style="font-family:Georgia, 'Times New Roman', Times, serif; color: yellow;">Reserver Repas</h1>
+                {% if  erreur  %}
+                <span class="error d-flex justify-content-center" style="color: red;"><img class="icon icon icon-pre" alt="" src="https://image.flaticon.com/icons/png/512/8/8798.png" style="width: 20px; height: 20px;margin-top: 10px;" />{{ erreur }}</span>
+                {% endif %}
+                <form method="POST" class="d-flex justify-content-center" >
+                    
+                    <div class="form-group" >
+                    {% csrf_token %}
+                    
+                    {% for field in reform %}
+                        <div class="form-check-inline " >
+                            <label for="{{ field.id_for_label }}" class="label" > {{ field.html_name }} </label>
+                            {{ field }}
+                        </div>
+        
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary"> Reserver</button>
+                </div>
+                </form>
+            </div>
+        </div>      
+
+    {% else %}
+        <h1>you Have to <a href="/login/"> login</a> first</h1>
+    {% endif %}
+
+{% endblock %}
