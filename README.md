@@ -4,7 +4,7 @@
 Une application web qui permet la gestion des reservations des repas.
 Le but ultime du site est de digitaliser la restauration au sein de l'Ecole Mohammadia d'Ingenieurs.
 </p>
-Ce dernier a également d’autres objectifstels que :
+Ce dernier a également d’autres objectifstels que :<br>
 <ul>
   <li> Connexion de l’utilisateurqu’il soit étudiant, opérateur-scanner ou guichetier.
   </li>
